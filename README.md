@@ -128,7 +128,6 @@ graph TD
     A --- SAN1
     B --- SAN2
     C --- SAN3
-    style Datacenter 1 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 **Impact**:
