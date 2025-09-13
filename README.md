@@ -126,10 +126,10 @@ graph TD
     end
 
     A ---x B
-    B x--- C
+    B ---x C
     C --- A
     A --- SAN1
-    B x--- SAN2
+    B ---x SAN2
     C --- SAN3
 
     %% Styling subgraphs by ID
