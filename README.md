@@ -125,11 +125,11 @@ graph TD
         SAN3[SAN Storage 3]
     end
 
-    A --- B
-    B --- C
+    A ---x B
+    B x--- C
     C --- A
     A --- SAN1
-    B --- SAN2
+    B x--- SAN2
     C --- SAN3
 
     %% Styling subgraphs by ID
