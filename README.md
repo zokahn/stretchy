@@ -183,9 +183,9 @@ graph TD
     C --- SAN3
 
     %% Styling
-    style DC1 fill:#FFFF00,stroke:#f00,stroke-width:3px
-    style DC2 fill:#FFFF00,stroke:#f00,stroke-width:3px
-    style DC3 fill:#FFFF00,stroke:#333,stroke-width:2px
+    style DC1 fill:#FFFACD,stroke:#f00,stroke-width:3px
+    style DC2 fill:#FFFACD,stroke:#f00,stroke-width:3px
+    style DC3 fill:#FFFACD,stroke:#333,stroke-width:2px
     style SAN1 fill:#FFB3B3,stroke:#f00,stroke-width:2px
     style SAN2 fill:#FFB3B3,stroke:#f00,stroke-width:2px
     style SAN3 fill:#FFFFCC,stroke:#333,stroke-width:1px
