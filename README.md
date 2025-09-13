@@ -159,13 +159,13 @@ In this scenario, network connectivity between datacenters is lost, creating a s
 ```mermaid
 graph TD
     subgraph DC1["Datacenter 1"]
-        A[Master Node 1 ⚠️]
-        SAN1[Corrupt Dataset 1]
+        A[Master Node 1]
+        SAN1[SAN Storage 1]
     end
 
     subgraph DC2["Datacenter 2"]
-        B[Master Node 2 ⚠️]
-        SAN2[Corrupt Dataset 2]
+        B[Master Node 2]
+        SAN2[SAN Storage 2]
     end
 
     subgraph DC3["Datacenter 3"]
@@ -173,22 +173,12 @@ graph TD
         SAN3[SAN Storage 3]
     end
 
-    %% Network connections
-    A --- C
-    C --- A
-
-    %% Storage connections
+    A x--x B
+    B x--x C
+    C x--x A
     A --- SAN1
     B --- SAN2
     C --- SAN3
-
-    %% Styling
-    style DC1 fill:#FFFACD,stroke:#f00,stroke-width:3px
-    style DC2 fill:#FFFACD,stroke:#f00,stroke-width:3px
-    style DC3 fill:#FFFACD,stroke:#333,stroke-width:2px
-    style SAN1 fill:#FFB3B3,stroke:#f00,stroke-width:2px
-    style SAN2 fill:#FFB3B3,stroke:#f00,stroke-width:2px
-    style SAN3 fill:#FFFFCC,stroke:#333,stroke-width:1px
 ```
 
 **Impact**:
@@ -212,39 +202,34 @@ In this scenario, the stretched VLAN that connects all three datacenters fails, 
 ```mermaid
 graph TD
     subgraph DC1["Datacenter 1"]
-        A[Master Node 1 ⚠️]
-        SAN1[Corrupt Dataset 1]
+        A[Master Node 1]
+        SAN1[SAN Storage 1]
     end
 
     subgraph DC2["Datacenter 2"]
-        B[Master Node 2 ⚠️]
-        SAN2[Corrupt Dataset 2]
+        B[Master Node 2]
+        SAN2[SAN Storage 2]
     end
 
     subgraph DC3["Datacenter 3"]
-        C[Master Node 3 ⚠️]
-        SAN3[Corrupt Dataset 3]
+        C[Master Node 3]
+        SAN3[SAN Storage 3]
     end
 
-    %% Broken control-plane links
     A x--x B
     B x--x C
     C x--x A
-
-    %% Storage connections
     A --- SAN1
     B --- SAN2
     C --- SAN3
 
-    %% Styling datacenters (yellow but with red border for outage)
-    style DC1 fill:#FFFF00,stroke:#f00,stroke-width:3px
-    style DC2 fill:#FFFF00,stroke:#f00,stroke-width:3px
-    style DC3 fill:#FFFF00,stroke:#f00,stroke-width:3px
-
-    %% Styling corrupted datasets
-    style SAN1 fill:#FFB3B3,stroke:#f00,stroke-width:2px
-    style SAN2 fill:#FFB3B3,stroke:#f00,stroke-width:2px
-    style SAN3 fill:#FFB3B3,stroke:#f00,stroke-width:2px
+    %% Styling subgraphs by ID
+    style DC1 fill:#FFFACD,stroke:#333,stroke-width:2px
+    style DC2 fill:#FFFACD,stroke:#333,stroke-width:2px
+    style DC3 fill:#FFFACD,stroke:#333,stroke-width:2px
+    style SAN1 fill:#FF2A00,stroke:#333,stroke-width:2px
+    style SAN2 fill:#FF2A00,stroke:#333,stroke-width:2px
+    style SAN3 fill:#FF2A00,stroke:#333,stroke-width:2px
 ```
 
 **Impact**:
